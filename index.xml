@@ -1,4 +1,23 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Home on Fledgeling Blogger's Blog</title><link>https://fledgeling-hi.github.io/</link><description>Recent content in Home on Fledgeling Blogger's Blog</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Tue, 16 Jul 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://fledgeling-hi.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Hugoでブログを始めよう(インストール編)</title><link>https://fledgeling-hi.github.io/posts/hugo-install-win/</link><pubDate>Tue, 16 Jul 2024 00:00:00 +0000</pubDate><guid>https://fledgeling-hi.github.io/posts/hugo-install-win/</guid><description>はじめに 新たにブログを始めるにあたっていろいろと調査した結果、Hugoでやってみることにしました。私はサーバサイドJavaのエンジニアですので、フロント側の技術や流行には正直疎いのですが、調べた中では一番とっつきやすい感じがしました。 ブログ用途でとても人気があるようですし、かっこいいテーマも多かったのでかなり魅力的でした。楽しんでやってみたいと思います！
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Home on Fledgeling Blogger's Blog</title><link>https://fledgeling-hi.github.io/</link><description>Recent content in Home on Fledgeling Blogger's Blog</description><generator>Hugo -- gohugo.io</generator><language>ja</language><lastBuildDate>Sun, 21 Jul 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://fledgeling-hi.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>HugoのブログをGitHubで管理しよう (Win編)</title><link>https://fledgeling-hi.github.io/posts/github-quickstart/</link><pubDate>Sun, 21 Jul 2024 00:00:00 +0000</pubDate><guid>https://fledgeling-hi.github.io/posts/github-quickstart/</guid><description>はじめに エンジニアにとって、Git等のツールを使ったソースなどのバージョン管理は、避けては通れません。私自身も、仕事でバージョン管理システムは、なにかしらのツールで15年以上、直近5年くらいはGitを使っています。熟練度や利用頻度は担当している業務やプロジェクトにもよって人それぞれかもしれませんが、習得すべき技術であることは間違いありません。一方で、概念や用語は決して分かりやすいとは言えず、習熟コストはやや高めで、とっつきやすい技術とは言えないと感じています。
+そこで、ブログの管理のような比較的身近で、興味のわきやすい題材で、GitやGitHubの操作を体験を通して習得するというのは、とても合理的なんじゃないかなと思います。 非エンジニアだけれども興味や関心のある方、まさにこれからエンジニアを目指して勉強中の方も多くいらっしゃると思いますので、わかりやすさを心がけて書いていきたいと思います。
+準備 GitHub にアカウント作成 まず初めに、GitHubにアカウントを作成しておきましょう。GitHub Docsに、GitHub でのアカウントの作成 というページがありますので、そちらを参考に、無料の個人用アカウント(GitHub Free)を作成しましょう。
+右上の&amp;quot;Sign up&amp;quot;です。かっこいいサイトデザインですね。
+今回は個人利用を想定していますので、ウィザードが最後のほうで、&amp;ldquo;あなたのチームは何名？&amp;rdquo; と聞いてきたら、&amp;ldquo;Just me(私だけ！)&amp;rdquo; と答えてくださいね。
+Git のインストールと設定 次に、自分のPC(以降、ローカルと表記します)に、Gitをインストールしましょう。 Gitの公式からWindows用のインストーラを選んでダウンロードしてください。 おそらく多くの方は、&amp;ldquo;64-bit Git for Windows Setup&amp;rdquo; を選んでおけば大丈夫だと思います。
+インストールを開始すると、インストールウィザードにいろいろ聞かれて、戸惑うかもしれません。 そんな時は、Qiitaで &amp;ldquo;Git インストール&amp;rdquo; 等と検索すると、画像付きで丁寧に手順を説明されている記事がたくさんありますので、そちらを参考にすると良いと思います。
+ウィザードの問いかけには、基本的にはすべてデフォルトで答えて大丈夫だと思いますが、私の場合は、以下の点を変更しました。 普段仕事等で使っている方にとっては、プロジェクト経験やお好み等によって意見が分かれるところがあるかもしれません。
+Visual Studio Code(VS Code)を仕事でも利用しているため。VS Code未経験の方はぜひ試してみると良いかも。
+昨今、置き換えが推奨されている用語については、新しい提案「main」を選択。
+私の仕事上では、ほぼこのパターン。
+なんとなく、両方チェック。使う機会があるかもしれない、、、くらいの、個人的な理由。
+インストールが終わったら、Gitの設定をひとつしておきます。もしかしたら不要かもしれないのですが、GitHubへSSHでアクセスするときに備えて、認証に使うSSHキーを作成しておきましょう。
+せっかくなので、先ほどインストールしたばかりのGitのツール、[Git Bash]を早速使ってみましょう。Windowsのメニューに追加されているはずですので、探して起動してください。DOS窓のような黒い画面が立ち上がりますので、次のコマンドを実行してください。
+ssh-keygen ウィザードにファイルの保存先を聞かれますが、デフォルトのまま何も入力せずで良いと思います。パスフレーズは任意の文字列を入力してください（※パスフレーズは忘れないように）
+ちなみに、なぜ &amp;ldquo;不要かもしれない&amp;rdquo; かと言うと、このあとの私の説明や手順では、GitHubへのアクセスはおそらくHTTPSのみのハズだからです。
+GitHub Desktop のインストール 最後に、GitHub Desktopをインストールしましょう。 GitHub DocsのGitHub Desktopのインストールと認証に、とても分かりやすく書かれていると思います。セットアップ(設定方法) ～ (GitHubへの)認証までを行いましょう。
+ここまでで、HugoブログをGitHubで管理するために必要なアカウントやツールの準備は終わりです。
+(参考)Visual Studio Code のインストール まだ利用したことがない、という方はこの機会にぜひ触ってみてください。とても便利だと思います。公式サイトからインストーラをダウンロードできます。この記事もVS Codeを使って書いています。今後、操作や手順を説明する時の画面イメージに使うことがあると思います。
+今回やることの整理 設定を始める前に、これからやりたいことをいったん整理したいと思います。今回は、今までローカル(自分のPCのこと)で保管していたHugoのブログ記事を、GitHubで(以降、リモートと表記します)で保管するところまでを目標にしています。</description></item><item><title>Hugoでブログを始めよう (Win編)</title><link>https://fledgeling-hi.github.io/posts/hugo-install-win/</link><pubDate>Tue, 16 Jul 2024 00:00:00 +0000</pubDate><guid>https://fledgeling-hi.github.io/posts/hugo-install-win/</guid><description>はじめに 新たにブログを始めるにあたっていろいろと調査した結果、Hugoでやってみることにしました。私はサーバサイドJavaのエンジニアですので、フロント側の技術や流行には正直疎いのですが、調べた中では一番とっつきやすい感じがしました。 ブログ用途でとても人気があるようですし、かっこいいテーマも多かったのでかなり魅力的でした。楽しんでやってみたいと思います！
 ということで、今回は、Hugoを自分のPC(ローカル環境)にインストールするところから、ローカル環境でブログサイト(サンプル)が表示できるようになるまでを記事にしたいと思います。
 なお、あらかじめお断りしておきますが、公式の手順とは少し違うやり方で進めたところもありますので、その辺りはご了承ください。もしかしたら、公式の手順でうまくいかなかった、よくわからなかった、といった方には、この記事のやり方でうまくいくかもしれませんので、参考になれば良いなと思います。
 ①Hugoのインストール まず、Hugoの公式サイトに行きましょう。
